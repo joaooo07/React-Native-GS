@@ -1,5 +1,3 @@
-// src/components/UI/TextField.tsx
-
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -13,7 +11,6 @@ import {
 } from "react-native";
 import { useTheme } from "@/contexts/ThemeContext";
 
-// Necessário para animações suaves no Android
 if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
@@ -55,13 +52,11 @@ export const TextField: React.FC<Props> = ({
               ? theme.colors.primary
               : theme.colors.textSecondary,
 
-            // ⭐ BORDA NEON AQUI
             shadowColor: theme.colors.primary,
             shadowOpacity: isFocused ? 0.8 : 0,
             shadowRadius: isFocused ? 12 : 0,
             shadowOffset: { width: 0, height: 0 },
 
-            // Android neon
             elevation: isFocused ? 8 : 0,
           },
         ]}
@@ -103,9 +98,8 @@ const createStyles = (theme: any) =>
       fontWeight: "500",
     },
 
-    // ⭐ FUNDO DO CAMPO = MESMA COR DO TÍTULO
     inputWrapper: {
-      backgroundColor: theme.colors.surface, // fundo igual título
+      backgroundColor: theme.colors.surface, 
       borderWidth: 2,
       borderRadius: theme.radius.md,
       paddingHorizontal: theme.spacing(2),

@@ -1,4 +1,3 @@
-// src/services/api.ts
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -7,8 +6,8 @@ export const api = axios.create({
   timeout: 15000,
 });
 //http://localhost:8080/api/v1
-//http://gs-api-34.eastus.azurecontainer.io:8080/api/v1
-// Interceptor que pega o token correto do storage
+//http://gs-api-35.eastus.azurecontainer.io:8080/api/v1
+
 api.interceptors.request.use(
   async (config) => {
     try {

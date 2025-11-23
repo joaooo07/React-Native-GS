@@ -5,7 +5,6 @@ export const fetchAnalysisResult = async (id: number) => {
   return r.data;
 };
 
-/** Calcula score baseado nas skills */
 export const calculateScore = (
   matchCount: number,
   gapCount: number

@@ -43,7 +43,6 @@ export const AboutScreen: React.FC = () => {
 
   return (
     <ScreenContainer>
-      {/* HEADER */}
       <View style={styles.header}>
         <AppText size={26} weight="bold">
           Sobre o App

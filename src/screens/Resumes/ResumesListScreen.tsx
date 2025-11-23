@@ -1,5 +1,3 @@
-// src/screens/Resumes/ResumesListScreen.tsx
-
 import React, { useEffect, useState } from 'react';
 import { 
   View, Text, StyleSheet, FlatList, TouchableOpacity, 
@@ -21,7 +19,6 @@ import {
   Resume 
 } from '@/services/resumeService';
 
-// Card estilizado
 import { AppCard } from '@/components/DesignSystem/AppCard';
 
 export const ResumesListScreen: React.FC = () => {
@@ -34,7 +31,6 @@ export const ResumesListScreen: React.FC = () => {
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [error, setError] = useState('');
 
-  // Estados do modal
   const [showConfirm, setShowConfirm] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
@@ -85,7 +81,6 @@ export const ResumesListScreen: React.FC = () => {
         </Text>
       </View>
 
-      {/* Editar */}
       <TouchableOpacity
         onPress={() => navigation.navigate("ResumeForm", { resume: item })}
         style={styles.iconButton}
@@ -93,7 +88,6 @@ export const ResumesListScreen: React.FC = () => {
         <Ionicons name="create-outline" size={22} color={theme.colors.primary} />
       </TouchableOpacity>
 
-      {/* Excluir — abre modal */}
       <TouchableOpacity
         onPress={() => openDeleteModal(item.id)}
         style={styles.iconButton}
@@ -135,8 +129,6 @@ export const ResumesListScreen: React.FC = () => {
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={{ paddingBottom: 40 }}
       />
-
-      {/* 🔥 Modal de confirmação */}
       <ConfirmModal
         visible={showConfirm}
         title="Excluir currículo"

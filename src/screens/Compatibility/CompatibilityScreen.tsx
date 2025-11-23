@@ -1,4 +1,3 @@
-// src/screens/Compatibility/CompatibilityScreen.tsx
 import React, { useEffect, useState } from "react";
 import {
   View,
@@ -38,7 +37,6 @@ export const CompatibilityScreen: React.FC = () => {
   const [jobDescription, setJobDescription] = useState("");
   const [loading, setLoading] = useState(false);
 
-  /* -------------------- LOAD RESUMES -------------------- */
   useEffect(() => {
     loadResumes();
   }, []);
@@ -57,7 +55,6 @@ export const CompatibilityScreen: React.FC = () => {
     }
   };
 
-  /* -------------------- RUN ANALYSIS (POST → GET → NAVIGATE) -------------------- */
   const handleAnalyze = async () => {
     if (!selectedResume) {
       Alert.alert("Selecione um currículo");
@@ -71,7 +68,6 @@ export const CompatibilityScreen: React.FC = () => {
     try {
       setLoading(true);
 
-      // 1️⃣ Cria análise
       const created = await runAnalysis({
         jobTitle,
         jobDescription,
@@ -81,10 +77,10 @@ export const CompatibilityScreen: React.FC = () => {
       const analysisId = created.id;
       if (!analysisId) throw new Error("API não retornou ID da análise.");
 
-      // 2️⃣ Busca o resultado REAL imediatamente
+
       const finalResult = await getAnalysisResult(analysisId);
 
-      // 3️⃣ Navega direto para a tela de resultado
+
       navigation.navigate("AnalysisResult", finalResult);
 
     } catch (err) {
@@ -95,7 +91,6 @@ export const CompatibilityScreen: React.FC = () => {
     }
   };
 
-  /* -------------------- LOADING -------------------- */
   if (loadingResumes) {
     return (
       <ScreenContainer>
@@ -104,13 +99,12 @@ export const CompatibilityScreen: React.FC = () => {
     );
   }
 
-  /* -------------------- UI -------------------- */
+
   return (
     <ScreenContainer>
       <ScrollView contentContainerStyle={styles.scroll}>
         <Text style={styles.title}>Análise de Compatibilidade</Text>
 
-        {/* CURRÍCULO SELECT */}
         <View style={styles.section}>
           <Text style={styles.label}>Selecione o currículo</Text>
 
@@ -184,7 +178,6 @@ export const CompatibilityScreen: React.FC = () => {
   );
 };
 
-/* -------------------- STYLES -------------------- */
 const createStyles = (theme: any) =>
   StyleSheet.create({
     scroll: {

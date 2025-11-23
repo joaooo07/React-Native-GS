@@ -1,5 +1,3 @@
-// src/screens/Settings/PersonalizeScreen.tsx
-
 import React from 'react';
 import { View, Text, StyleSheet, Switch, TouchableOpacity } from 'react-native';
 import { ScreenContainer } from '@/components/Layout/ScreenContainer';
@@ -28,8 +26,6 @@ export const PersonalizeScreen: React.FC = () => {
 
   return (
     <ScreenContainer>
-
-      {/* HEADER */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={26} color={theme.colors.textPrimary} />
@@ -37,11 +33,9 @@ export const PersonalizeScreen: React.FC = () => {
 
         <Text style={styles.headerTitle}>Personalizar App</Text>
 
-        {/* espaço pro título centralizado */}
         <View style={{ width: 26 }} />
       </View>
 
-      {/* DARK MODE */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Tema</Text>
 
@@ -54,7 +48,6 @@ export const PersonalizeScreen: React.FC = () => {
         </View>
       </View>
 
-      {/* COR PRIMÁRIA */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Cor Primária</Text>
 
@@ -73,7 +66,6 @@ export const PersonalizeScreen: React.FC = () => {
         </View>
       </View>
 
-      {/* ESTILO DOS CARDS */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Estilo dos Cards</Text>
 
@@ -82,7 +74,6 @@ export const PersonalizeScreen: React.FC = () => {
         {renderOption('Gradiente', 'gradient', cardStyle, setCardStyle, styles)}
       </View>
 
-      {/* FONTE */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Fonte Global</Text>
 
@@ -91,7 +82,6 @@ export const PersonalizeScreen: React.FC = () => {
         {renderOption('Clean', 'clean', fontStyle, setFontStyle, styles)}
       </View>
 
-      {/* ANIMAÇÕES */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Animações</Text>
 
@@ -108,8 +98,6 @@ export const PersonalizeScreen: React.FC = () => {
   );
 };
 
-
-/* -------------------- Funções auxiliares -------------------- */
 
 const renderOption = (
   label: string,
@@ -134,8 +122,6 @@ const getColor = (c: string) => {
   }
 };
 
-
-/* -------------------- Estilos Dinâmicos -------------------- */
 
 const createStyles = (theme: any) =>
   StyleSheet.create({

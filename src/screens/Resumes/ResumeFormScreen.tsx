@@ -1,5 +1,3 @@
-// src/screens/Resumes/ResumeFormScreen.tsx
-
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Alert, ScrollView } from "react-native";
 
@@ -13,7 +11,6 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/useAuth";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-// DESIGN SYSTEM
 import { AppCard } from "@/components/DesignSystem/AppCard";
 
 export const ResumeFormScreen: React.FC = () => {
@@ -31,7 +28,6 @@ export const ResumeFormScreen: React.FC = () => {
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Quando está editando → carregar dados do currículo
   useEffect(() => {
     if (isEditing && editingResume) {
       setTitle(editingResume.title);
@@ -126,15 +122,12 @@ const createStyles = (theme: any) =>
       padding: 24,
       borderRadius: 20,
 
-      // 🔥 AUMENTA O CARD DE VERDADE
       minHeight: 400,  
       justifyContent: "center",
 
-      // 🔥 Faz ocupar praticamente toda a largura no mobile
       marginHorizontal: 0,
 
-      // 🔥 E deixa o card BELÍSSIMO
-      maxWidth: 650, // funciona no web, tablet etc
+      maxWidth: 650, 
     },
 
   });

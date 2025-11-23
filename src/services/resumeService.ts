@@ -11,9 +11,6 @@ export interface ResumePayload {
   description: string;
 }
 
-/** LISTA — agora correto com PAGE */
-// src/services/resumeService.ts
-
 export const getResumes = async (): Promise<Resume[]> => {
   try {
     const r = await api.get(`/resume`);
@@ -25,19 +22,16 @@ export const getResumes = async (): Promise<Resume[]> => {
 };
 
 
-/** CRIAR */
 export const createResume = async (payload: ResumePayload): Promise<Resume> => {
   const r = await api.post(`/resume`, payload);
   return r.data;
 };
 
-/** ATUALIZAR */
 export const updateResume = async (id: number, payload: ResumePayload): Promise<Resume> => {
   const r = await api.put(`/resume/${id}`, payload);
   return r.data;
 };
 
-/** DELETAR */
 export const deleteResume = async (id: number): Promise<boolean> => {
   const r = await api.delete(`/resume/${id}`);
   return r.status === 200 || r.status === 204;

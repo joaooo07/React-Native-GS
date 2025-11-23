@@ -1,4 +1,3 @@
-// src/components/DesignSystem/AppCard.tsx
 import React from 'react';
 import { View, StyleSheet, ViewStyle } from 'react-native';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -14,7 +13,6 @@ export const AppCard: React.FC<Props> = ({ children, style }) => {
 
   const cardTheme = theme.cards;
 
-  // --- Estilo base para cards sem gradiente ---
   const cardBase = [
     {
       backgroundColor:
@@ -24,12 +22,11 @@ export const AppCard: React.FC<Props> = ({ children, style }) => {
       borderWidth: cardTheme.borderWidth,
       padding: 16,
       marginBottom: 16,
-      ...cardTheme.shadowStyle, // sombra dinâmica
+      ...cardTheme.shadowStyle, 
     },
     style,
   ];
 
-  // --- Estilo com gradiente ---
   if (cardStyle === 'gradient') {
     return (
       <LinearGradient
@@ -51,6 +48,5 @@ export const AppCard: React.FC<Props> = ({ children, style }) => {
     );
   }
 
-  // --- Default / Rounded ---
   return <View style={cardBase}>{children}</View>;
 };

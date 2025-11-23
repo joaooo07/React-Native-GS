@@ -1,4 +1,3 @@
-// src/screens/Home/HomeScreen.tsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { ScreenContainer } from '@/components/Layout/ScreenContainer';
@@ -20,7 +19,6 @@ export const HomeScreen: React.FC = () => {
 
       <View style={styles.grid}>
 
-        {/* Currículos */}
         <AppCard style={styles.cardWrapper}>
           <TouchableOpacity
             style={styles.cardButton}
@@ -31,7 +29,6 @@ export const HomeScreen: React.FC = () => {
           </TouchableOpacity>
         </AppCard>
 
-        {/* Compatibilidade */}
         <AppCard style={styles.cardWrapper}>
           <TouchableOpacity
             style={styles.cardButton}
@@ -42,7 +39,6 @@ export const HomeScreen: React.FC = () => {
           </TouchableOpacity>
         </AppCard>
 
-        {/* Perfil */}
         <AppCard style={styles.cardWrapper}>
           <TouchableOpacity
             style={styles.cardButton}
@@ -53,7 +49,6 @@ export const HomeScreen: React.FC = () => {
           </TouchableOpacity>
         </AppCard>
 
-        {/* Sobre */}
         <AppCard style={styles.cardWrapper}>
           <TouchableOpacity
             style={styles.cardButton}
@@ -64,7 +59,6 @@ export const HomeScreen: React.FC = () => {
           </TouchableOpacity>
         </AppCard>
 
-        {/* Personalização */}
         <AppCard style={styles.cardWrapper}>
           <TouchableOpacity
             style={styles.cardButton}
@@ -102,13 +96,11 @@ const createStyles = (theme: any) =>
       width: '100%',
     },
 
-    // 🔥 Wrapper do AppCard — para controlar o tamanho no grid
     cardWrapper: {
       width: '44%',
       margin: 8,
     },
 
-    // 🔥 Conteúdo interno do card
     cardButton: {
       justifyContent: 'center',
       alignItems: 'center',

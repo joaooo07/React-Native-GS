@@ -1,5 +1,3 @@
-// src/screens/Auth/SignupScreen.tsx
-
 import React, { useState } from 'react';
 import {
   Text,
@@ -60,7 +58,6 @@ export const SignupScreen: React.FC = () => {
           showsVerticalScrollIndicator={false}
         >
           
-          {/* LOGO + TÍTULO */}
           <View style={styles.header}>
             <Image
               source={require('@/assets/images/careerlens_logo_white.png')}
@@ -70,7 +67,6 @@ export const SignupScreen: React.FC = () => {
             <Text style={styles.title}>Criar Conta</Text>
           </View>
 
-          {/* FORM */}
           <View style={styles.formContainer}>
             <TextField
               label="Nome completo"
@@ -115,8 +111,6 @@ export const SignupScreen: React.FC = () => {
   );
 };
 
-/* ---------------- STYLES DINÂMICOS ---------------- */
-
 const createStyles = (theme: any) =>
   StyleSheet.create({
     container: {
@@ -137,7 +131,7 @@ const createStyles = (theme: any) =>
       height: 200,
       marginBottom: theme.spacing(1),
       marginTop: theme.spacing(1),
-      tintColor: theme.colors.textPrimary, // deixa logo branca no dark mode
+      tintColor: theme.colors.textPrimary, 
     },
     title: {
       color: theme.colors.textPrimary,

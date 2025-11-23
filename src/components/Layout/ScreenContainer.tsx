@@ -1,4 +1,3 @@
-// src/components/Layout/ScreenContainer.tsx
 
 import React from 'react';
 import {

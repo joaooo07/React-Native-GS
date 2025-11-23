@@ -1,5 +1,3 @@
-// src/components/UI/ConfirmModal.tsx
-
 import React from "react";
 import {
   Modal,

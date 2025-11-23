@@ -25,7 +25,6 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const AppTabs = createBottomTabNavigator<AppTabParamList>();
 
-// STACK DAS TELAS DE LOGIN/CADASTRO
 const AuthStackNavigator = () => (
   <AuthStack.Navigator screenOptions={{ headerShown: false }}>
     <AuthStack.Screen name="Login" component={LoginScreen} />
@@ -33,7 +32,6 @@ const AuthStackNavigator = () => (
   </AuthStack.Navigator>
 );
 
-// TABS PRINCIPAIS DO APLICATIVO
 const AppTabsNavigator = () => {
   const { theme } = useTheme();
 
@@ -69,7 +67,6 @@ const AppTabsNavigator = () => {
   );
 };
 
-// ROOT DO APP (STACK PRINCIPAL)
 export const AppNavigator: React.FC = () => {
   const { isAuthenticated, loadingInitial } = useAuth();
   const { theme } = useTheme();

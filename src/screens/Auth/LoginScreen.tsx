@@ -1,5 +1,3 @@
-// src/screens/Auth/LoginScreen.tsx
-
 import React, { useState } from 'react';
 import {
   TouchableOpacity,
@@ -19,7 +17,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '@/navigation/types';
 import { useTheme } from '@/contexts/ThemeContext';
 
-// 🔥 Novo:
 import { AppText } from '@/components/DesignSystem/AppText';
 
 type NavProp = NativeStackNavigationProp<AuthStackParamList, 'Login'>;
@@ -60,7 +57,6 @@ export const LoginScreen: React.FC = () => {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
-          {/* LOGO + TÍTULO */}
           <View style={styles.header}>
             <Image
               source={require('@/assets/images/careerlens_logo_white.png')}
@@ -72,7 +68,6 @@ export const LoginScreen: React.FC = () => {
             </AppText>
           </View>
 
-          {/* FORM */}
           <View style={styles.formContainer}>
             <TextField
               label="E-mail"
@@ -103,7 +98,6 @@ export const LoginScreen: React.FC = () => {
             />
           </View>
 
-          {/* LINK CRIAR CONTA */}
           <TouchableOpacity
             onPress={() => navigation.navigate('Signup')}
             style={{ marginTop: theme.spacing(3), marginBottom: 40 }}
@@ -117,8 +111,6 @@ export const LoginScreen: React.FC = () => {
     </KeyboardAvoidingView>
   );
 };
-
-/* ---------------- STYLES DINÂMICOS ---------------- */
 
 const createStyles = (theme: any) =>
   StyleSheet.create({

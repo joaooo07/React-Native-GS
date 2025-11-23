@@ -1,5 +1,3 @@
-// src/screens/Compatibility/AnalysisResultScreen.tsx
-
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -27,9 +25,6 @@ import {
 
 const screenWidth = Dimensions.get("window").width;
 
-/* =======================
-      BARRA ANIMADA
-======================= */
 const BarItem = ({ label, value, color, max, theme }: any) => {
   const widthAnim = useState(new Animated.Value(0))[0];
 
@@ -70,9 +65,7 @@ const BarItem = ({ label, value, color, max, theme }: any) => {
   );
 };
 
-/* =======================
-        TELA
-======================= */
+
 export const AnalysisResultScreen: React.FC = () => {
   const { theme } = useTheme();
   const styles = createStyles(theme);
@@ -92,9 +85,7 @@ export const AnalysisResultScreen: React.FC = () => {
     "number"
   );
 
-  /* ----------------------------------------
-        LOAD ANALYSIS FROM API
-  ---------------------------------------- */
+
   useEffect(() => {
   let interval: any;
 
@@ -126,18 +117,15 @@ export const AnalysisResultScreen: React.FC = () => {
     }
   };
 
-  // Polling a cada 1 segundo
+
   interval = setInterval(poll, 1000);
 
-  // Parar polling ao sair da tela
   return () => clearInterval(interval);
 }, [analysisId]);
 
 
 
-  /* ----------------------------------------
-        LOADING
-  ---------------------------------------- */
+
   if (loading) {
     return (
       <ScreenContainer>
@@ -148,9 +136,7 @@ export const AnalysisResultScreen: React.FC = () => {
     );
   }
 
-  /* ----------------------------------------
-        UI
-  ---------------------------------------- */
+
   return (
     <ScreenContainer>
       <ScrollView contentContainerStyle={styles.scroll}>
@@ -158,7 +144,6 @@ export const AnalysisResultScreen: React.FC = () => {
           Resultado da Análise
         </AppText>
 
-        {/* TOGGLE */}
         <View style={styles.toggleContainer}>
           {["number", "chart", "bars"].map((mode) => (
             <TouchableOpacity
@@ -184,7 +169,6 @@ export const AnalysisResultScreen: React.FC = () => {
           ))}
         </View>
 
-        {/* NUMBER MODE */}
         {viewMode === "number" && (
           <View style={styles.scoreCard}>
             <AppText size={48} weight="bold" color={theme.colors.primary}>
@@ -196,7 +180,6 @@ export const AnalysisResultScreen: React.FC = () => {
           </View>
         )}
 
-        {/* CIRCULAR */}
         {viewMode === "chart" && (
           <View style={styles.chartWrapper}>
             <Svg width={200} height={200}>
@@ -230,7 +213,6 @@ export const AnalysisResultScreen: React.FC = () => {
           </View>
         )}
 
-        {/* BARS */}
         {viewMode === "bars" && (
           <View style={styles.barsWrapper}>
             <BarItem
@@ -259,7 +241,6 @@ export const AnalysisResultScreen: React.FC = () => {
           </View>
         )}
 
-        {/* MATCHING SKILLS */}
         <AppText weight="bold" size={18} style={styles.sectionTitle}>
           Habilidades Corretas
         </AppText>
@@ -269,7 +250,6 @@ export const AnalysisResultScreen: React.FC = () => {
           </AppText>
         ))}
 
-        {/* GAP SKILLS */}
         <AppText weight="bold" size={18} style={styles.sectionTitle}>
           Habilidades a Melhorar
         </AppText>
@@ -288,10 +268,6 @@ export const AnalysisResultScreen: React.FC = () => {
     </ScreenContainer>
   );
 };
-
-/* =======================
-        STYLES
-======================= */
 
 const createStyles = (theme: any) =>
   StyleSheet.create({

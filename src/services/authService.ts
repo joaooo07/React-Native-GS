@@ -1,4 +1,3 @@
-// src/services/authService.ts
 import { api } from './api';
 import { LoginResponse } from '@/types/auth';
 

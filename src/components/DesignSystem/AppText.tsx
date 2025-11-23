@@ -1,4 +1,3 @@
-// src/components/DesignSystem/AppText.tsx
 import React from 'react';
 import { Text, TextProps, TextStyle } from 'react-native';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -20,7 +19,6 @@ export const AppText: React.FC<Props> = ({
 }) => {
   const { theme } = useTheme();
 
-  // Converter fonte global + peso selecionado
   const fontWeight =
     theme.font.style === 'bold'
       ? '700'

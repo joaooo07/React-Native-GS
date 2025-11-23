@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { theme as baseTheme } from '@/theme/theme';
 
-// Tipos das preferências
+
 type ThemeMode = 'light' | 'dark';
 type PrimaryColor = 'blue' | 'purple' | 'green' | 'orange';
 type CardStyle = 'default' | 'rounded' | 'gradient';
@@ -22,7 +22,7 @@ interface ThemeContextProps extends ThemePreferences {
   setCardStyle: (style: CardStyle) => void;
   setFontStyle: (font: FontStyle) => void;
   setAnimationsEnabled: (enabled: boolean) => void;
-  theme: any; // tema final aplicado no app
+  theme: any; 
 }
 
 const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps);
@@ -34,7 +34,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [fontStyle, setFontStyleState] = useState<FontStyle>('normal');
   const [animationsEnabled, setAnimationsEnabledState] = useState<boolean>(true);
 
-  // Carregar preferências do usuário
+
   useEffect(() => {
     (async () => {
       const stored = await AsyncStorage.getItem('@prefs');
@@ -49,7 +49,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     })();
   }, []);
 
-  // Salvar preferências quando mudarem
+
   const savePrefs = async (newPrefs: ThemePreferences) => {
     await AsyncStorage.setItem('@prefs', JSON.stringify(newPrefs));
   };
@@ -72,7 +72,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (partial.animationsEnabled !== undefined) setAnimationsEnabledState(partial.animationsEnabled);
   };
 
-  // Criação dinâmica do tema final aplicado no app
   const theme = {
     ...baseTheme,
       colors: {
@@ -81,14 +80,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         primaryColor === 'blue' ? '#3B82F6' :
         primaryColor === 'purple' ? '#A855F7' :
         primaryColor === 'green' ? '#22C55E' :
-        '#F59E0B', // orange
+        '#F59E0B', 
 
       background: themeMode === 'dark' ? '#0F172A' : '#FFFFFF',
       surface: themeMode === 'dark' ? '#1E293B' : '#F2F2F2',
       textPrimary: themeMode === 'dark' ? '#FFFFFF' : '#111827',
       textSecondary: themeMode === 'dark' ? '#CBD5E1' : '#4B5563',
 
-      // bordas padrão
       border: themeMode === 'dark' ? '#334155' : '#D1D5DB',
     },
 
@@ -96,7 +94,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       style: fontStyle,
     },
 
-    // 🔥 NOVO SISTEMA DE CARDS
     cards: {
       style: cardStyle,
 

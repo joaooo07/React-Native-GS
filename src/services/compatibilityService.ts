@@ -1,5 +1,3 @@
-// src/services/compatibilityService.ts
-
 import { api } from "./api";
 
 export interface CompatibilityPayload {
@@ -19,11 +17,11 @@ export interface CompatibilityResult {
 
 export const runAnalysis = async (payload: any) => {
   const r = await api.post(`/analysis`, payload);
-  return r.data; // { id, status }
+  return r.data; 
 };
 
 export const getAnalysisResult = async (id: number) => {
   const r = await api.get(`/analysis/${id}`);
-  return r.data; // resultado completo
+  return r.data;
 };
 

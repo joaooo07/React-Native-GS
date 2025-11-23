@@ -1,4 +1,3 @@
-// src/contexts/AuthContext.tsx
 import React, { createContext, useCallback, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { loginRequest, signupRequest } from '@/services/authService';
@@ -6,7 +5,7 @@ import { loginRequest, signupRequest } from '@/services/authService';
 export type AuthUser = {
   id: number;
   name: string;
-  email?: string; // opcional pois a API não retorna
+  email?: string; 
 };
 
 type AuthContextData = {
@@ -34,7 +33,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [loadingInitial, setLoadingInitial] = useState(true);
   const [signing, setSigning] = useState(false);
 
-  // Carrega auth salvo no storage ao iniciar
   useEffect(() => {
     const loadStoredAuth = async () => {
       try {
@@ -54,25 +52,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     loadStoredAuth();
   }, []);
 
-  // Salva no storage e no estado
+
   const persistAuth = async (data: { user: AuthUser; token: string }) => {
     setUser(data.user);
     setToken(data.token);
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   };
 
-  // LOGIN REAL (API Java)
   const signIn = useCallback(async (email: string, password: string) => {
     setSigning(true);
     try {
       const result = await loginRequest({ email, password });
 
-      // A API retorna: { id, name, token }
+
       await persistAuth({
         user: {
           id: result.id,
           name: result.name,
-          email: email, // usamos o email informado no login
+          email: email, 
         },
         token: result.token,
       });
@@ -81,13 +78,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   }, []);
 
-  // SIGNUP REAL (API Java)
+
   const signUp = useCallback(async (name: string, email: string, password: string) => {
     setSigning(true);
     try {
       const result = await signupRequest({ name, email, password });
 
-      // API retorna igual ao login: { id, name, token }
+
       await persistAuth({
         user: {
           id: result.id,

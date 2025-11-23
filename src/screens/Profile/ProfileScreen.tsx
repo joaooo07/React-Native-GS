@@ -1,5 +1,3 @@
-// src/screens/Profile/ProfileScreen.tsx
-
 import React, { useEffect, useState } from "react";
 import {
   View,
@@ -50,7 +48,6 @@ export const ProfileScreen: React.FC = () => {
     }
   };
 
-  // ----------------- MÉTRICAS REAIS -------------------
   const loadMetrics = async () => {
     try {
       const resumes = await getResumes();
@@ -71,8 +68,6 @@ export const ProfileScreen: React.FC = () => {
   }, [])
 );
 
-
-  // --------- cálculo do progresso do perfil ---------
   const getProfileProgress = () => {
     let progress = 0;
 
@@ -88,7 +83,6 @@ export const ProfileScreen: React.FC = () => {
 
   return (
     <ScreenContainer>
-      {/* HEADER */}
       <View style={styles.header}>
         <Text style={styles.title}>Meu Perfil</Text>
 
@@ -103,8 +97,6 @@ export const ProfileScreen: React.FC = () => {
           />
         </TouchableOpacity>
       </View>
-
-      {/* AVATAR */}
       <View style={styles.avatarContainer}>
         {photo ? (
           <Image source={{ uri: photo }} style={styles.avatar} />
@@ -123,7 +115,6 @@ export const ProfileScreen: React.FC = () => {
         </TouchableOpacity>
       </View>
 
-      {/* CARD PRINCIPAL */}
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Informações Pessoais</Text>
 
@@ -135,8 +126,6 @@ export const ProfileScreen: React.FC = () => {
         <Text style={styles.label}>E-mail</Text>
         <Text style={styles.value}>{user?.email}</Text>
       </View>
-
-      {/* PROGRESSO DO USUÁRIO */}
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Meu Progresso</Text>
 
@@ -177,7 +166,6 @@ export const ProfileScreen: React.FC = () => {
         )}
       </View>
 
-      {/* BOTÃO SAIR */}
       <PrimaryButton
         title="Sair"
         onPress={signOut}
@@ -186,8 +174,6 @@ export const ProfileScreen: React.FC = () => {
     </ScreenContainer>
   );
 };
-
-/* ---------------- STYLES ---------------- */
 
 const createStyles = (theme: any) =>
   StyleSheet.create({
@@ -207,7 +193,6 @@ const createStyles = (theme: any) =>
       padding: 4,
     },
 
-    /* Avatar */
     avatarContainer: {
       alignSelf: "center",
       marginBottom: theme.spacing(3),
@@ -240,7 +225,6 @@ const createStyles = (theme: any) =>
       elevation: 3,
     },
 
-    /* Cards */
     card: {
       backgroundColor: theme.colors.surface,
       padding: theme.spacing(3),
@@ -265,7 +249,6 @@ const createStyles = (theme: any) =>
       fontWeight: "500",
     },
 
-    /* Estatísticas */
     statsRow: {
       flexDirection: "row",
       justifyContent: "space-between",
