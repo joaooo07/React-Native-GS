@@ -4,7 +4,10 @@ Aplicativo desenvolvido para a disciplina de Desenvolvimento Mobile, com foco em
 O projeto utiliza **Expo**, **React Native**, **TypeScript**, **React Navigation**, **Axios** e integra com uma **API Java Spring Boot** (autenticação via JWT).
 
 ---
-
+## Convite do Build (Somente Testadores Cadastrados)
+Utilizando o Email passado: profantonio.neto@fiap.com.br
+https://appdistribution.firebase.google.com/testerapps/1:835113111356:android:b910bea66769c6daa35839/releases/41go66fosirvo?utm_source=firebase-console
+---
 ## ✨ Funcionalidades principais
 
 ### ✅ **1. Autenticação (Login, Signup, Logout)**
